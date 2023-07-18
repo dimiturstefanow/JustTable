@@ -1,4 +1,4 @@
-## MinimalisticManagementApp
+## TableSimple
 ___
 
 * Minimalistic front-end application.
@@ -7,8 +7,7 @@ ___
 
 ## Technology used:
 * ReactJS
-* Sass
-* LocalStorage
+* CSS
 ___
 ### Screenshot:
 
