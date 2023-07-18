@@ -2,7 +2,7 @@
 ___
 
 * Minimalistic front-end application.
-* Creating a table in React, with add, delete, edit rows in a table made from scratch
+* Creating a table in React, with add, delete and edit rows in a table made from scratch
 ___
 
 ## Technology used:
