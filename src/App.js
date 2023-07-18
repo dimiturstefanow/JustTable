@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import data from "./mock-data.json";
 
-function App() {
+const App = () => {
+  const [contacts, setContants] = useState(data);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Adress</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {contacts.map((contact) => (
+            <tr>
+              <td>{contact.fullName}</td>
+              <td>{contact.address}</td>
+              <td>{contact.phoneNumber}</td>
+              <td>{contact.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
-}
+};
 
 export default App;
