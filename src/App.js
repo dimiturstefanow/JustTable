@@ -27,6 +27,34 @@ const App = () => {
           ))}
         </tbody>
       </table>
+      <h2>Add a Contact</h2>
+      <form>
+        <input
+          type="text"
+          name="fullName"
+          required="required"
+          placeholder="Enter a name..."
+        />
+        <input
+          type="text"
+          name="address"
+          required="required"
+          placeholder="Enter an address..."
+        />
+        <input
+          type="text"
+          name="phoneNumber"
+          required="required"
+          placeholder="Enter a phone..."
+        />
+        <input
+          type="email"
+          name="email"
+          required="required"
+          placeholder="Enter an email..."
+        />
+        <button type="submit">Add</button>
+      </form>
     </div>
   );
 };
