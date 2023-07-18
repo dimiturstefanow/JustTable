@@ -1,7 +1,7 @@
 ## TableSimple
 ___
 
-* Minimalistic front-end application.
+* Minimalistic Front-end application.
 * Creating a table in React, with add, delete and edit rows in a table made from scratch
 ___
 
