@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { nanoid } from "nanoid";
 import "./App.css";
 import data from "./mock-data.json";
 
@@ -27,11 +28,15 @@ const App = () => {
     event.preventDefault();
 
     const newContact = {
+      id: nanoid(),
       fullName: addFormData.fullName,
       address: addFormData.address,
       phoneNumber: addFormData.phoneNumber,
       email: addFormData.email,
     };
+
+    const newContacts = [...contacts, newContact];
+    setContants(newContacts);
   };
 
   return (
@@ -57,7 +62,7 @@ const App = () => {
         </tbody>
       </table>
       <h2>Add a Contact</h2>
-      <form>
+      <form onSubmit={handleAddFormSubmit}>
         <input
           type="text"
           name="fullName"
