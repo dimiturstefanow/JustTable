@@ -4,6 +4,12 @@ import data from "./mock-data.json";
 
 const App = () => {
   const [contacts, setContants] = useState(data);
+  const [addFormData, setAddFormData] = useState({
+    fullName: "",
+    address: "",
+    phoneNumber: "",
+    email: "",
+  });
 
   return (
     <div className="app-container">
