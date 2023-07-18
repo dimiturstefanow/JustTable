@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { nanoid } from "nanoid";
 import "./App.css";
 import data from "./mock-data.json";
 import ReadOnlyRow from "./components/ReadOnlyRow";
+import EditableRow from "./components/EditableRow";
 
 const App = () => {
   const [contacts, setContants] = useState(data);
@@ -12,6 +13,8 @@ const App = () => {
     phoneNumber: "",
     email: "",
   });
+
+  const [editContactId, setEditContantId] = useState(2);
 
   const handleAddFormChange = (event) => {
     event.preventDefault();
@@ -38,25 +41,39 @@ const App = () => {
 
     const newContacts = [...contacts, newContact];
     setContants(newContacts);
+
+    const handleEditClick = (event, contact) => {
+      event.preventDefault();
+      setEditContantId(contact.id);
+    };
   };
 
   return (
     <div className="app-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Adress</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {contacts.map((contact) => (
-            <ReadOnlyRow contact={contact} />
-          ))}
-        </tbody>
-      </table>
+      <form>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Adress</th>
+              <th>Phone Number</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {contacts.map((contact) => (
+              <Fragment>
+                {editContactId === contact.id ? (
+                  <EditableRow />
+                ) : (
+                  <ReadOnlyRow contact={contact} handleEditClick={handleEditClick}/>
+                )}
+              </Fragment>
+            ))}
+          </tbody>
+        </table>
+      </form>
       <h2>Add a Contact</h2>
       <form onSubmit={handleAddFormSubmit}>
         <input

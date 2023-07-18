@@ -1,6 +1,6 @@
 import React from "react";
 
-function ReadOnlyRow({ contact }) {
+const ReadOnlyRow = ({ contact, handleEditClick }) => {
   return (
     <div>
       <tr>
@@ -8,9 +8,15 @@ function ReadOnlyRow({ contact }) {
         <td>{contact.address}</td>
         <td>{contact.phoneNumber}</td>
         <td>{contact.email}</td>
+        <td>
+          <button
+            type="button"
+            onClick={(event) => handleEditClick(event, contact)}
+          ></button>
+        </td>
       </tr>
     </div>
   );
-}
+};
 
 export default ReadOnlyRow;
