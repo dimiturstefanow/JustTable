@@ -23,6 +23,17 @@ const App = () => {
     setAddFormData(newFormData);
   };
 
+  const handleAddFormSubmit = (event) => {
+    event.preventDefault();
+
+    const newContact = {
+      fullName: addFormData.fullName,
+      address: addFormData.address,
+      phoneNumber: addFormData.phoneNumber,
+      email: addFormData.email,
+    };
+  };
+
   return (
     <div className="app-container">
       <table>
@@ -52,24 +63,28 @@ const App = () => {
           name="fullName"
           required="required"
           placeholder="Enter a name..."
+          onChange={handleAddFormChange}
         />
         <input
           type="text"
           name="address"
           required="required"
           placeholder="Enter an address..."
+          onChange={handleAddFormChange}
         />
         <input
           type="text"
           name="phoneNumber"
           required="required"
           placeholder="Enter a phone..."
+          onChange={handleAddFormChange}
         />
         <input
           type="email"
           name="email"
           required="required"
           placeholder="Enter an email..."
+          onChange={handleAddFormChange}
         />
         <button type="submit">Add</button>
       </form>
