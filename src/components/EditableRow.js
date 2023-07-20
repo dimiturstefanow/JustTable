@@ -1,5 +1,5 @@
 import React from "react";
-
+// will consider updating the UI
 const EditableRow = ({
   editFormData,
   handleEditFormChange,
